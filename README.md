@@ -246,7 +246,7 @@ video_capture.release()
 cv2.destroyAllWindows()
 ````
 
-## Final Result <a name="final"></a>
+# Final Result <a name="final"></a>
 
 #### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY IMAGE on the screen of my own phone:
 
