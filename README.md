@@ -6,12 +6,13 @@
     2. [Second Step](#embedsecond)
     3. [Third Step](#embedthird)
 
-
 2. [Recognice Faces](#recognize)
     1. [First Step](#recognizefirst)
     2. [First Step](#recognizesecond)
     3. [Third Step](#recognizethird)
     4. [Fourth Step](#recognizefourth)
+
+3. [Final Result](#final)
 
 
 # Embedded Faces <a name="embedded"></a>
@@ -129,10 +130,9 @@ for i in range(5):
 
 
 
-
 # Recognice Faces <a name="recognize"></a>
 
-#### The second script and last one script is the one executed in order to detect the faces recorded on the last script, for that mission, this libraries are necessary:
+#### The second script and last one script is the one executed in order to detect the faces recorded on the last script, for that mission, this libraries are necessary: 
 
 ```python
 import face_recognition
@@ -161,7 +161,7 @@ known_face_encodings = []  # encodingd of all faces
 known_face_names = []	   # ref_id of all faces
 ```
 
-#### Afther that, we will create the object to record the faces on camera and the sum of variables needed to process the information:
+#### Afther that, we will create the object to record the faces on camera and the sum of variables needed to process the information:  <a name="recognizesecond"></a>
 
 ````python
 
@@ -174,3 +174,83 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 ````
+
+#### Afther that we create the core of the using a while loop that will execute forever until we eliminate or quite the face/s on camera that can be recognice by the algotithm. <a name="recognizethird"></a>
+
+````python
+while True  :
+
+	# Grab a single frame of video
+	ret, frame = video_capture.read()
+
+	# Resize frame of video to 1/4 size for faster face recognition processing
+	small_frame = cv2.resize(frame, (0, 0), fx=0.25, fy=0.25)
+
+	# Convert the image from BGR color (which OpenCV uses) to RGB color (which face_recognition uses)
+	rgb_small_frame = small_frame[:, :, ::-1]
+
+	# Only process every other frame of video to save time
+	if process_this_frame:
+		# Find all the faces and face encodings in the current frame of video
+		face_locations = face_recognition.face_locations(rgb_small_frame)
+		face_encodings = face_recognition.face_encodings(rgb_small_frame, face_locations)
+
+		face_names = []
+		for face_encoding in face_encodings:
+			# See if the face is a match for the known face(s)
+			matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+			name = "Unknown"
+
+			# Or instead, use the known face with the smallest distance to the new face
+			face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+			best_match_index = np.argmin(face_distances)
+			if matches[best_match_index]:
+				name = known_face_names[best_match_index]
+			face_names.append(name)
+			
+	# Turn the variable the cotnrary of his current value
+	process_this_frame = not process_this_frame
+````
+
+
+#### And here the results are display. Notacie that other color, label or whatever feature on the rectangle that is ont he recogniced face can be changed. I did choose red because is a very striking color but you can use whatever you want. Also you can change the size not onyl of the rectangle but the size of the window displayed. <a name="recognizefourth"></a>
+
+````python
+# Display the results
+	for (top, right, bottom, left), name in zip(face_locations, face_names):
+		
+		# Scale back up face locations since the frame we detected in was scaled to 1/4 size
+		top *= 4
+		right *= 4
+		bottom *= 4
+		left *= 4
+
+		# Create a rectangle with the red color
+		cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
+
+		# Draw a label with a name (the name stored before) below the face
+		cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
+		font = cv2.FONT_HERSHEY_DUPLEX
+		cv2.putText(frame, ref_dictt[name], (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+	font = cv2.FONT_HERSHEY_DUPLEX
+
+	# Display the resulting imagecv2.putText(frame, ref_dictt[name], (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
+	cv2.imshow('Video', frame)
+
+	# Hit 'q' on the keyboard to stop and the execution
+	if cv2.waitKey(1) & 0xFF == ord('q'):
+		break
+		
+# Destroy the process if nothing is found
+video_capture.release()
+cv2.destroyAllWindows()
+````
+
+## Final Result <a name="recognizefourth"></a>
+
+#### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY FACE:
+
+<p align="center" width="150%">
+    <img width="30%" src="https://user-images.githubusercontent.com/116290888/199321536-4cc5cf67-576c-4a53-9d01-010ddd2a22a1.PNG"> 
+</p>
+
