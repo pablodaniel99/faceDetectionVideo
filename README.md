@@ -35,8 +35,9 @@ ref_id=input("Enter id: ")
 
 #### I have entered the name of ELon Musk with ID 001: 
 
-
-
+<p align="center" width="100%">
+    <img width="30%" src="https://user-images.githubusercontent.com/116290888/199313545-526cc451-0f3f-4308-8fad-1f3db2ed4bf0.PNG"> 
+</p>
 
 #### Then we will open the pickle file (or create it if it isn't created): 
 
@@ -141,4 +142,4 @@ import csv
 import pickle
 ```
 
-# Recognice Faces <a name="recognizefirst"></a>
+### Recognice Faces <a name="recognizefirst"></a>
