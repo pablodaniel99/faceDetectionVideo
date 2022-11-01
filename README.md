@@ -8,10 +8,10 @@
 
 
 2. [Recognice Faces](#recognize)
-    1. [First Step](#recognizeFirst)
-    2. [First Step](#recognize)
-    3. [Third Step](#recognize)
-    4. [Fourth Step](#recognize)
+    1. [First Step](#recognizefirst)
+    2. [First Step](#recognizesecond)
+    3. [Third Step](#recognizethird)
+    4. [Fourth Step](#recognizefourth)
 
 
 # Embedded Faces <a name="embedded"></a>
@@ -32,6 +32,11 @@ import pickle
 name=input("Enter name: ")
 ref_id=input("Enter id: ")
 ```
+
+#### I have entered the name of ELon Musk with ID 001: 
+
+
+
 
 #### Then we will open the pickle file (or create it if it isn't created): 
 
@@ -64,7 +69,7 @@ except:
 	embed_dictt={}
 ```
 
-#### After that, on the core of this script, we will reord 5 photos on the face that is currently on the camera. I highly recommend due to the algorithm that you have natural light for the photos coming from both sides, to be the more be as calm as possible. Afther  <a name="embedthird"></a>
+#### After that, on the core of this script, we will reord 5 photos on the face that is currently on the camera. I highly recommend due to the algorithm that you have natural light for the photos coming from both sides, to be the more be as calm as possible. After that, take the photos pressing the key 's' five times and press to finish the process the key 'q'. The code you need is the one below: <a name="embedthird"></a>
 
 ```python
 
@@ -115,10 +120,25 @@ for i in range(5):
 			break
 ```
 
+#### The image i have selected is this one, from a New York Time post: 
+<p align="center" width="100%">
+    <img width="30%" src="https://user-images.githubusercontent.com/116290888/199306421-6b83beb5-55de-4696-841a-4651f6aa0105.PNG"> 
+</p>
+
+
+#### Now, all the work related with the first script is done, let's move forward to the second and las one.
 
 # Recognice Faces <a name="recognize"></a>
 #### The second script and last one script is the one executed in order to detect the faces recorded on the last script, for that mission, this libraries are necessary:
+
 ```python
-
-
+import face_recognition
+import cv2
+import numpy as np
+import glob
+import time
+import csv
+import pickle
 ```
+
+# Recognice Faces <a name="recognizefirst"></a>
