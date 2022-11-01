@@ -35,7 +35,7 @@ ref_id=input("Enter id: ")
 
 #### I have entered the name of ELon Musk with ID 001: 
 
-<p align="center" width="100%">
+<p align="center" width="150%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199313545-526cc451-0f3f-4308-8fad-1f3db2ed4bf0.PNG"> 
 </p>
 
@@ -73,7 +73,6 @@ except:
 #### After that, on the core of this script, we will reord 5 photos on the face that is currently on the camera. I highly recommend due to the algorithm that you have natural light for the photos coming from both sides, to be the more be as calm as possible. After that, take the photos pressing the key 's' five times and press to finish the process the key 'q'. The code you need is the one below: <a name="embedthird"></a>
 
 ```python
-
 # For 5 times in a row 5 images will be take in order to capture the faces needed to detect the face in the other script
 
 for i in range(5):
@@ -120,16 +119,19 @@ for i in range(5):
 			cv2.destroyAllWindows()
 			break
 ```
-
 #### The image i have selected is this one, from a New York Time post: 
-<p align="center" width="100%">
+<p align="center" width="150%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199306421-6b83beb5-55de-4696-841a-4651f6aa0105.PNG"> 
 </p>
 
-
 #### Now, all the work related with the first script is done, let's move forward to the second and las one.
 
+
+
+
+
 # Recognice Faces <a name="recognize"></a>
+
 #### The second script and last one script is the one executed in order to detect the faces recorded on the last script, for that mission, this libraries are necessary:
 
 ```python
@@ -143,3 +145,32 @@ import pickle
 ```
 
 ### Recognice Faces <a name="recognizefirst"></a>
+
+```python
+# After playing embeddings script, the pickle files must be open in order to get all the faces and names
+
+f=open("ref_name.pkl","rb")
+ref_dictt=pickle.load(f)         
+f.close()
+
+f=open("ref_embed.pkl","rb")
+embed_dictt=pickle.load(f)     
+f.close()
+
+known_face_encodings = []  # encodingd of all faces
+known_face_names = []	   # ref_id of all faces
+```
+
+#### Afther that, we will create the object to record the faces on camera and the sum of variables needed to process the information:
+
+````python
+
+# Then, start the record of the image
+video_capture = cv2.VideoCapture(0)
+
+# Initialize some variables to locate the face encodings and names
+face_locations = []
+face_encodings = []
+face_names = []
+process_this_frame = True
+````
