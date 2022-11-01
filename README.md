@@ -120,7 +120,7 @@ for i in range(5):
 			cv2.destroyAllWindows()
 			break
 ```
-#### The image i have selected is this one, from a New York Time post: 
+#### The image i have selected is this one, from a newspaper called Independent: 
 <p align="center" width="200%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199306421-6b83beb5-55de-4696-841a-4651f6aa0105.PNG"> 
 </p>
@@ -248,9 +248,14 @@ cv2.destroyAllWindows()
 
 ## Final Result <a name="final"></a>
 
-#### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY IMAGE:
+#### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY IMAGE on the screen of my own phone:
 
 <p align="center" width="200%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199321536-4cc5cf67-576c-4a53-9d01-010ddd2a22a1.PNG"> 
 </p>
 
+
+
+#### Image of Elon 1: https://www.independentespanol.com/tecnologia/twitter-elon-musk-compra-acuerdo-b2119250.html
+
+#### Image of Elon 2: https://es.wikipedia.org/wiki/Elon_Musk#/media/Archivo:Elon_Musk_Royal_Society_(crop1).jpg
