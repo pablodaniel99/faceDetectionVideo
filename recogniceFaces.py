@@ -35,7 +35,7 @@ face_encodings = []
 face_names = []
 process_this_frame = True
 
-while True  :
+while True :
 
 	# Grab a single frame of video
 	ret, frame = video_capture.read()
@@ -65,11 +65,13 @@ while True  :
 				name = known_face_names[best_match_index]
 			face_names.append(name)
 
+	# Turn the variable the cotnrary of his current value
 	process_this_frame = not process_this_frame
 
 
 	# Display the results
 	for (top, right, bottom, left), name in zip(face_locations, face_names):
+		
 		# Scale back up face locations since the frame we detected in was scaled to 1/4 size
 		top *= 4
 		right *= 4
@@ -79,7 +81,7 @@ while True  :
 		# Create a rectangle with the red color
 		cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
-		# Draw a label with a name below the face
+		# Draw a label with a name (the name stored before) below the face
 		cv2.rectangle(frame, (left, bottom - 35), (right, bottom), (0, 0, 255), cv2.FILLED)
 		font = cv2.FONT_HERSHEY_DUPLEX
 		cv2.putText(frame, ref_dictt[name], (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
@@ -88,12 +90,11 @@ while True  :
 	# Display the resulting imagecv2.putText(frame, ref_dictt[name], (left + 6, bottom - 6), font, 1.0, (255, 255, 255), 1)
 	cv2.imshow('Video', frame)
 
-	# Hit 'q' on the keyboard to stop the script
+	# Hit 'q' on the keyboard to stop and the execution
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
 
 
-
-# Release handle to the webcam
+# Destroy the process if nothing is found
 video_capture.release()
 cv2.destroyAllWindows()
