@@ -36,7 +36,7 @@ ref_id=input("Enter id: ")
 
 #### I have entered the name of ELon Musk with ID 001: 
 
-<p align="center" width="150%">
+<p align="center" width="200%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199313545-526cc451-0f3f-4308-8fad-1f3db2ed4bf0.PNG"> 
 </p>
 
@@ -121,7 +121,7 @@ for i in range(5):
 			break
 ```
 #### The image i have selected is this one, from a New York Time post: 
-<p align="center" width="150%">
+<p align="center" width="200%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199306421-6b83beb5-55de-4696-841a-4651f6aa0105.PNG"> 
 </p>
 
@@ -248,9 +248,9 @@ cv2.destroyAllWindows()
 
 ## Final Result <a name="recognizefourth"></a>
 
-#### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY FACE:
+#### First, you have to put your image/s in fornt of the camera. A window with the video the camera is capturing will be deployed and the face in this case, as you can see, is detected WITH OTHER COMPLETLY IMAGE:
 
-<p align="center" width="150%">
+<p align="center" width="200%">
     <img width="30%" src="https://user-images.githubusercontent.com/116290888/199321536-4cc5cf67-576c-4a53-9d01-010ddd2a22a1.PNG"> 
 </p>
 
